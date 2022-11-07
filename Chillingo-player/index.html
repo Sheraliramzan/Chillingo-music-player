@@ -1,51 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chillingo</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <meta name="keywords" content="HTML, Javascript, CSS, Codeer, 100DayOfCode." />
-    <meta name="description" content="Music Player built with Vanilla Javascript." />
 </head>
-
 <body>
-    <section id="home">
 
-        <div class="playbox">
-            <nav>
-                <ul>
-                    <li class="nav-link"><a href="./page/about.html">Logo Place here</a></li>
-                </ul>
-            </nav>
-            <!-- <h1 class="heading">Zen Lofi Player</h1> -->
-            <div class="controller">
-                <div id="circle-bg" class="circle">
-                    <div id="circle-sm" class="circle2"><img id="cover" src="" class="fluid-img"></div>
-                </div>
-                <div class="songs">
-                    <h2 id="song-name">Travel love Beats</h2>
-                    <div class="controls">
-                        <audio id="audio" src=""></audio>
-                        <img id="backward" class="media-btn" src="./assets/images/backward-button.png">
-                        <img id="play-stop" class="media-btn">
-                        <img id="forward" class="media-btn" src="./assets/images/fast-forward.png">
-                    </div>
-                </div>
-            </div>
-        </div>
+<form action="home.html" id="form-cont">
+  
+  <label for="username">Username:</label><br>
+  <input id="username" type="text" id="username" name="username" placeholder="Username"><br><br>
+  <label for="email">Email:</label><br>
+  <input id="email" type="text" id="email" name="email" placeholder="Email-Address"><br><br>
+  <label for="password">Password:</label><br>
+  <input id="password" type="text" id="password" name="password" placeholder="Password"><br><br>
+  <input type="submit" id="signIn" value="Sign-in">
+</form> 
 
-        <div class="collection">
-
-            <div id="musicbox" class="musicbox">
-                <h2>Chillingo Study Playlist</h2>
-            </div>
-        </div>
-
-    </section>
-
-    <script src="./assets/js/app.js" type="text/javascript"></script>
 </body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCb0puKwg6V_IgT9WaGrM3AjTIGAOoVuvo",
+      authDomain: "music-player-361da.firebaseapp.com",
+      databaseURL: "https://music-player-361da-default-rtdb.firebaseio.com",
+      projectId: "music-player-361da",
+      storageBucket: "music-player-361da.appspot.com",
+      messagingSenderId: "520152043132",
+      appId: "1:520152043132:web:2ba52028afaa02584c83f9"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    signIn.addEventListener('click',(e)=>{
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var username= document.getElementById('username').value;
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+        const user = userCredential.user;
+        alert('User Created');
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
 
+        alert(errorMessage);
+    });
+    })
+  </script>
 </html>
