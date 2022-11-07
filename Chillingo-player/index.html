@@ -6,16 +6,30 @@
 </head>
 <body>
 
-<form action="home.html" id="form-cont">
-  
-  <label for="username">Username:</label><br>
-  <input id="username" type="text" id="username" name="username" placeholder="Username"><br><br>
-  <label for="email">Email:</label><br>
-  <input id="email" type="text" id="email" name="email" placeholder="Email-Address"><br><br>
-  <label for="password">Password:</label><br>
-  <input id="password" type="text" id="password" name="password" placeholder="Password"><br><br>
-  <input type="submit" id="signIn" value="Sign-in">
-</form> 
+        <div class="playbox">
+            <nav>
+                <ul>
+                    <li class="nav-link"><a href="./page/about.html">Logo Place here</a></li>
+                </ul>
+            </nav>
+            <!-- <h1 class="heading">Zen Lofi Player</h1> -->
+            <div class="controller">
+                <div id="circle-bg" class="circle">
+                    <div id="circle-sm" class="circle2"><img id="cover" src="" class="fluid-img"></div>
+                </div>
+                <div class="songs">
+                    <h2 id="song-name">Travel love Beats</h2>
+                    <div class="controls">
+                        <audio id="audio" src=""></audio>
+                        <img id="backward" class="media-btn" src="./assets/images/backward-button.png">
+                        <img id="play-stop" class="media-btn">
+                        <img id="forward" class="media-btn" src="./assets/images/fast-forward.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="collection">
 
 </body>
 <script type="module">
